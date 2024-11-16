@@ -11,15 +11,12 @@ class IncreasingArray {
         Scanner sc = new Scanner(System.in);
 
         long n = sc.nextLong();
-        long maxTillNow = Integer.MIN_VALUE;
+        long maxTillNow = 0;
         long ans = 0;
         for (long i = 0; i < n; i++) {
             long input = sc.nextLong();
-            if (input < maxTillNow) {
-                ans += Math.abs(input - maxTillNow);
-            } else {
-                maxTillNow = input;
-            }
+            maxTillNow = Math.max(maxTillNow, input);
+            ans += (maxTillNow - input);
         }
         System.out.println(ans);
         sc.close();
