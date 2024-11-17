@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 /**
@@ -5,8 +7,8 @@ import java.util.Scanner;
  */
 public class Permutations {
 
-    public static void main(String[] args) {
-        solve();
+    public static void main(String[] args) throws Exception {
+        solveBuffrederWriter();
 
     }
 
@@ -64,5 +66,33 @@ public class Permutations {
         }
 
         scanner.close();
+    }
+
+    // Now we will use buffered writer to make output faster then simple
+    // System.out.println()
+    public static void solveBuffrederWriter() throws Exception {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        sc.close();
+
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        if (n == 1) {
+            writer.write(1 + ""); // We need to convert 1 to string to print using writer because writer tries to
+                                  // print the unicode character represented by the interger value i.e. 1 here. so
+                                  // we need to convert ot string before printing using buffered writer
+        } else if (n == 2 || n == 3) {
+            writer.write("NO SOLUTION");
+        } else {
+            for (int i = 2; i <= n; i += 2) {
+                writer.write(i + " ");
+            }
+            for (int i = 1; i <= n; i += 2) {
+                writer.write(i + " ");
+            }
+        }
+        writer.flush();
+        writer.close();
     }
 }
