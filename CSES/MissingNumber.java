@@ -1,10 +1,14 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MissingNumber {
-    public static void main(String[] args) {
-        solve();
+    public static void main(String[] args) throws Exception {
+        solveThird();
     }
 
+    // Time complexity = O(n)
     public static void solveImproved() {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -16,10 +20,9 @@ public class MissingNumber {
         xor ^= n;
         System.out.println(xor);
         sc.close();
-
     }
 
-    // Why this one is givign TLE
+    // Time complexity = O(n)
     public static void solve() {
         Scanner sc = new Scanner(System.in);
         long n = sc.nextLong();
@@ -32,6 +35,30 @@ public class MissingNumber {
 
         System.out.println(sum - currSum);
         sc.close();
+    }
+
+    // Time complexity = O(n*log(n))
+    // Therefore giving TLE
+
+    public static void solveThird() throws Exception {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(reader.readLine());
+
+        int[] arr = Arrays.stream(reader.readLine().split(" "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+        Arrays.sort(arr);
+
+        for (int i = 0; i < n - 1; ++i) {
+            int val = arr[i];
+            if (val != i + 1) {
+                System.out.println(i + 1);
+                return;
+            }
+        }
+        System.out.println(n);
+
     }
 
 }
