@@ -29,7 +29,7 @@ int solve() {
   string x, s;
   cin >> x >> s;
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i <= 5; i++) {
     if (x.find(s) != -1) {
       return i;
     }
