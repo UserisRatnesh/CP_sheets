@@ -53,10 +53,10 @@ void solve() {
   for (int i = 0; i < n; i++) {
     ll val;
     cin >> val;
-    maxi += (val + x - 1) / x; // NOTE: ceil((double)val/x) => (val+x-1)x
+    maxi += ceil((lld)val / (lld)x);
     sum += val;
   }
-  cout << (sum + x - 1) / x << " " << maxi << endl;
+  cout << (ll)ceil((lld)sum / (lld)x) << " " << maxi << endl;
 }
 
 int main() {
