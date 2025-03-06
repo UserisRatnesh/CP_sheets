@@ -110,10 +110,10 @@ void solve() {
   }
 
   ll low = 0;
-  ll high = 2e9 + 7;
+  ll high = 2e9;
   ll ans = 0;
   while (low <= high) {
-    ll mid = low + ((high - low) >> 1);
+    ll mid = low + (high - low) / 2;
     ll totalSum = 0;
     for (auto it : vec) {
       totalSum += max(mid - it, 0LL);
