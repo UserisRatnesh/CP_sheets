@@ -108,8 +108,7 @@ void solve() {
     cin >> it;
   }
 
-  // It brings all unique numbers in the
-  // begining in same order as they were
+  // Remove consecutive duplicates and brings the unique to the front
   ll newN = unique(all(vec)) - vec.begin();
   ll ans = newN;
 
